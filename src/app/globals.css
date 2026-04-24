@@ -5,16 +5,17 @@
 @tailwind utilities;
 
 :root {
-  --navy: #0D1117;
-  --navy2: #161B22;
-  --navy3: #21262D;
+  /* Thème Premium Figma - Violet Profond */
+  --navy: #0B0415;     /* Fond principal ultra sombre */
+  --navy2: #160A2A;    /* Fond des cartes */
+  --navy3: #231145;    /* Survol / Bordures internes */
   --cyan: #00E5FF;
   --green: #00FF88;
   --amber: #FFD86B;
-  --purple: #C878FF;
-  --border: #30363D;
-  --muted: #8B949E;
-  --text: #E6EDF3;
+  --purple: #A855F7;   /* Violet vibrant type Figma */
+  --border: #30185A;   /* Bordures subtiles */
+  --muted: #9CA3AF;
+  --text: #F9FAFB;
 }
 
 * { box-sizing: border-box; }
@@ -26,16 +27,18 @@ body {
   color: var(--text);
   font-family: 'Syne', sans-serif;
   -webkit-font-smoothing: antialiased;
+  /* Ajout d'une lueur radiale violette en haut de la page */
+  background-image: radial-gradient(circle at top center, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
 }
 
-/* Scrollbar personnalisée */
+/* Scrollbar personnalisée Premium */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--navy2); }
+::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+::-webkit-scrollbar-thumb:hover { background: var(--purple); }
 
 /* Sélection de texte */
-::selection { background: rgba(0, 229, 255, 0.25); color: var(--text); }
+::selection { background: rgba(168, 85, 247, 0.3); color: var(--text); }
 
 /* Utilitaires */
 .font-mono { font-family: 'Space Mono', monospace; }
@@ -62,15 +65,20 @@ body {
 .animate-blink { animation: blink 1s step-end infinite; }
 .animate-fade-up { animation: fadeUp 0.6s ease forwards; }
 
-/* Gradient text */
+/* Gradient text Premium */
 .gradient-text {
-  background: linear-gradient(135deg, var(--cyan), var(--green));
+  background: linear-gradient(135deg, #E9D5FF, var(--purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Card hover glow */
+/* Card hover glow style Figma */
+.card-glow {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 .card-glow:hover {
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.5);
+  transform: translateY(-4px);
 }
