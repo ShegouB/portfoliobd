@@ -1,27 +1,12 @@
 import { Client } from '@notionhq/client';
 import { Project, BlogPost } from '@/types';
 
-// Initialisation du client Notion (côté serveur uniquement)
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 // ─────────────────────────────────────────────────────────────
 //  PROJETS
 // ─────────────────────────────────────────────────────────────
 
-/**
- * Récupère tous les projets depuis la base de données Notion.
- * Structure attendue dans Notion :
- *   - Titre      : colonne "Name" (title)
- *   - Description: colonne "Description" (rich_text)
- *   - Catégorie  : colonne "Category" (select)
- *   - Tags       : colonne "Tags" (multi_select)
- *   - Métrique   : colonne "Metric" (rich_text) — ex: "94.74% précision"
- *   - GitHub     : colonne "GitHub" (url)
- *   - Demo       : colonne "Demo" (url)
- *   - Image      : colonne "Image" (files)
- *   - Mis en avant: colonne "Featured" (checkbox)
- *   - Date       : colonne "Date" (date)
- */
 export async function getProjects(): Promise<Project[]> {
   try {
     const response = await notion.databases.query({
@@ -36,7 +21,7 @@ export async function getProjects(): Promise<Project[]> {
         id: page.id,
         title: props.Name?.title?.[0]?.plain_text ?? 'Sans titre',
         description: props.Description?.rich_text?.[0]?.plain_text ?? '',
-        category: props.Category?.select?.name ?? 'Web Full-Stack',
+        category: props.Category?.select?.name ?? 'Web',
         tags: props.Tags?.multi_select?.map((t: any) => t.name) ?? [],
         metric: props.Metric?.rich_text?.[0]?.plain_text ?? '',
         githubUrl: props.GitHub?.url ?? '',
@@ -48,7 +33,6 @@ export async function getProjects(): Promise<Project[]> {
     });
   } catch (error) {
     console.error('Erreur Notion (projets):', error);
-    // Retourne les projets statiques en fallback
     return FALLBACK_PROJECTS;
   }
 }
@@ -57,18 +41,8 @@ export async function getProjects(): Promise<Project[]> {
 //  BLOG
 // ─────────────────────────────────────────────────────────────
 
-/**
- * Récupère les articles de blog depuis Notion.
- * Structure attendue :
- *   - Titre    : "Name" (title)
- *   - Extrait  : "Excerpt" (rich_text)
- *   - Date     : "Date" (date)
- *   - Temps    : "ReadTime" (rich_text) — ex: "5 min"
- *   - Tags     : "Tags" (multi_select)
- *   - Slug     : "Slug" (rich_text)
- */
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  if (!process.env.NOTION_BLOG_DB_ID) return [];
+  if (!process.env.NOTION_BLOG_DB_ID) return FALLBACK_BLOG;
 
   try {
     const response = await notion.databases.query({
@@ -76,6 +50,8 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       filter: { property: 'Status', select: { equals: 'Published' } },
       sorts: [{ property: 'Date', direction: 'descending' }],
     });
+
+    if (response.results.length === 0) return FALLBACK_BLOG;
 
     return response.results.map((page: any) => {
       const props = page.properties;
@@ -91,48 +67,38 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     });
   } catch (error) {
     console.error('Erreur Notion (blog):', error);
-    return [];
+    return FALLBACK_BLOG;
   }
 }
 
 // ─────────────────────────────────────────────────────────────
-//  FALLBACK — données statiques si Notion est indisponible
+//  FALLBACKS (Données par défaut pour que le design soit tjs beau)
 // ─────────────────────────────────────────────────────────────
+
 const FALLBACK_PROJECTS: Project[] = [
   {
-    id: '1', title: 'Détection de tumeurs mammaires', category: 'Intelligence Artificielle',
-    description: 'Réseau de neurones Deep Learning pour la classification d\'images de tumeurs malignes du sein.',
-    tags: ['TensorFlow', 'Deep Learning', 'Computer Vision'], metric: 'Précision : 94.74%',
-    githubUrl: 'https://github.com/ShegouB', featured: true, date: '2024-06-01',
+    id: '1', title: 'IA Oncologie Mammaire', category: 'IA',
+    description: 'Modèle de Deep Learning classifiant les tumeurs avec 94.74% de précision.',
+    tags: ['TensorFlow', 'Python', 'CNN'], metric: '94.74% Précision',
+    githubUrl: 'https://github.com/ShegouB', featured: true, date: '2025-01-01',
   },
   {
-    id: '2', title: 'Prédiction sous-types de cancer', category: 'Bio-informatique',
-    description: 'Ingénierie sur 10 000 variables (5 000 gènes + 5 000 interrupteurs ADN) pour isoler 30 biomarqueurs.',
-    tags: ['Python', 'Génomique', 'ML'], metric: 'Précision : 86.14%',
-    githubUrl: 'https://github.com/ShegouB', featured: true, date: '2024-09-01',
+    id: '2', title: 'Smart Road IoT', category: 'Iot',
+    description: 'Architecture embarquée pour la détection automatisée des excès de vitesse.',
+    tags: ['C++', 'Arduino', 'Cloud'], metric: 'Idéathon C3E',
+    githubUrl: 'https://github.com/ShegouB', featured: true, date: '2025-02-01',
+  }
+];
+
+const FALLBACK_BLOG: BlogPost[] = [
+  {
+    id: 'b1', title: 'IA et Génomique : Le futur de la médecine',
+    excerpt: 'Comment les modèles de langage et le Deep Learning révolutionnent l\'analyse de l\'ADN.',
+    date: '2025-03-15', readTime: '6 min', tags: ['Bioinfo', 'IA'], slug: 'ia-genomique'
   },
   {
-    id: '3', title: 'SmartPuce — Smart Road', category: 'IoT / Embarqué',
-    description: 'Puce IoT automobile pour détection automatisée des excès de vitesse en temps réel.',
-    tags: ['ESP32', 'GPS', 'GSM/4G', 'Cloud'], metric: 'Idéathon C3E UAC',
-    githubUrl: 'https://github.com/ShegouB', featured: true, date: '2024-03-01',
-  },
-  {
-    id: '4', title: 'HealthAI', category: 'Intelligence Artificielle',
-    description: 'Assistant médical décisionnel basé sur Langflow, Streamlit et Python.',
-    tags: ['Langflow', 'Streamlit', 'Python'], githubUrl: 'https://github.com/ShegouB',
-    featured: false, date: '2024-11-01',
-  },
-  {
-    id: '5', title: 'NUMENERGIA', category: 'Web Full-Stack',
-    description: 'Application mobile de simulation géolocalisée d\'énergie.',
-    tags: ['TypeScript', 'Expo', 'React Native'], githubUrl: 'https://github.com/ShegouB',
-    featured: false, date: '2025-01-01',
-  },
-  {
-    id: '6', title: 'Gestionnaire de Projets', category: 'Web Full-Stack',
-    description: 'Plateforme collaborative avec génération de diagrammes de Gantt.',
-    tags: ['Python', 'SQLite', 'Gantt'], githubUrl: 'https://github.com/ShegouB',
-    featured: false, date: '2024-08-01',
-  },
+    id: 'b2', title: 'Pourquoi le Code Golf a changé ma vision du Python',
+    excerpt: 'Retour sur ma compétition NeurIPS 2025 et les techniques de compression de code.',
+    date: '2025-03-10', readTime: '4 min', tags: ['Python', 'Kaggle'], slug: 'code-golf-python'
+  }
 ];

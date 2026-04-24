@@ -9,28 +9,34 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import ParticlesBackground from '@/components/ParticlesBackground';
 
-// Revalidation ISR : le site se met à jour toutes les 60 secondes
-// depuis Notion sans redéploiement
 export const revalidate = 60;
 
 export default async function Home() {
-  // Fetch côté serveur (SSR/ISR) — données fraiches depuis Notion
   const [projects, blogPosts] = await Promise.all([
     getProjects(),
     getBlogPosts(),
   ]);
 
   return (
-    <main className="relative min-h-screen bg-navy">
+    <main className="relative min-h-screen bg-navy selection:bg-purple/30 selection:text-white">
       <ParticlesBackground />
       <Navbar />
+      
       <div className="relative z-10">
         <HeroSection />
-        <AboutSection />
-        <ProjectsSection projects={projects} />
-        <ExperienceSection />
-        {blogPosts.length > 0 && <BlogSection posts={blogPosts} />}
-        <ContactSection />
+        
+        {/* Sections avec ID pour la navigation */}
+        <div id="about"><AboutSection /></div>
+        <div id="projects"><ProjectsSection projects={projects} /></div>
+        <div id="experience"><ExperienceSection /></div>
+        
+        {/* Section Blog : On l'affiche toujours si on a des posts (Notion ou Fallback) */}
+        <div id="blog">
+          {blogPosts.length > 0 && <BlogSection posts={blogPosts} />}
+        </div>
+        
+        <div id="contact"><ContactSection /></div>
+        
         <Footer />
       </div>
     </main>

@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Boris Djagou — Bio-informaticien · Data Scientist · Développeur Full-Stack',
-  description: 'Portfolio de Boris Djagou : expertise en Intelligence Artificielle, Bio-informatique, développement Full-Stack et IoT embarqué. Basé à Cotonou, Bénin.',
+  description: 'Portfolio de Boris Djagou : expertise en Intelligence Artificielle, Bio-informatique, développement Full-Stack et IoT embarqué. Cotonou, Bénin.',
   keywords: ['Boris Djagou', 'Bio-informatique', 'Intelligence Artificielle', 'Full-Stack', 'IoT', 'Bénin', 'Data Science'],
   authors: [{ name: 'Boris Djagou', url: 'https://github.com/ShegouB' }],
   openGraph: {
