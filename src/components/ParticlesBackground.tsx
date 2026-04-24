@@ -18,24 +18,27 @@ export default function ParticlesBackground() {
         background: { color: { value: 'transparent' } },
         fpsLimit: 60,
         particles: {
-          color: { value: '#00E5FF' },
+          color: { value: '#A855F7' }, // Changé en Violet Premium
           links: {
-            color: '#00E5FF',
-            distance: 120,
+            color: '#A855F7', // Changé en Violet Premium
+            distance: 130,
             enable: true,
-            opacity: 0.12,
+            opacity: 0.08,
             width: 0.5,
           },
           move: {
             enable: true,
-            speed: 0.4,
+            speed: 0.3,
             direction: 'none',
             random: true,
             outModes: { default: 'bounce' },
           },
-          number: { density: { enable: true, area: 900 }, value: 70 },
-          opacity: { value: 0.4 },
-          size: { value: { min: 0.5, max: 2 } },
+          number: { 
+            density: { enable: true, area: 1000 }, 
+            value: 60 
+          },
+          opacity: { value: { min: 0.1, max: 0.3 } },
+          size: { value: { min: 0.5, max: 1.5 } },
         },
         detectRetina: true,
       }}
