@@ -2,7 +2,7 @@
 import { useCallback } from 'react';
 import Particles from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
-import type { Engine } from 'tsparticles-engine';
+import type { Engine } from '@tsparticles/engine';
 
 export default function ParticlesBackground() {
   const init = useCallback(async (engine: Engine) => {
@@ -18,9 +18,9 @@ export default function ParticlesBackground() {
         background: { color: { value: 'transparent' } },
         fpsLimit: 60,
         particles: {
-          color: { value: '#A855F7' }, // Changé en Violet Premium
+          color: { value: '#A855F7' },
           links: {
-            color: '#A855F7', // Changé en Violet Premium
+            color: '#A855F7',
             distance: 130,
             enable: true,
             opacity: 0.08,
