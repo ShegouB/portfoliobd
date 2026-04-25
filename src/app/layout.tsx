@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Boris Djagou — Bio-informaticien · Data Scientist · Développeur Full-Stack',
+  title: 'Boris Djagou',
   description: 'Portfolio de Boris Djagou : expertise en Intelligence Artificielle, Bio-informatique, développement Full-Stack et IoT embarqué. Cotonou, Bénin.',
   keywords: ['Boris Djagou', 'Bio-informatique', 'Intelligence Artificielle', 'Full-Stack', 'IoT', 'Bénin', 'Data Science'],
   authors: [{ name: 'Boris Djagou', url: 'https://github.com/ShegouB' }],

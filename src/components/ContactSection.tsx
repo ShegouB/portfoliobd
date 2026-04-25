@@ -10,6 +10,7 @@ const socials = [
   { label: 'Facebook', href: 'https://facebook.com/Borisdja2.0', icon: '👥' },
 ];
 
+
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
 export default function ContactSection() {

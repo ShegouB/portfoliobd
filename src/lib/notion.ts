@@ -100,6 +100,7 @@ const FALLBACK_PROJECTS: Project[] = [
   }
 ];
 
+
 const FALLBACK_BLOG: BlogPost[] = [
   {
     id: 'b1', title: 'IA et Génomique : Le futur de la médecine',
