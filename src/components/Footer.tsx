@@ -7,7 +7,7 @@ export default function Footer() {
             &lt;ShegouB <span className="text-purple">/</span>&gt;
           </span>
           <p className="text-[10px] font-mono text-muted uppercase tracking-widest">
-            Conçu avec passion à Cotonou, Bénin · 2026
+            Cotonou, Bénin · 2026
           </p>
         </div>
 
@@ -16,7 +16,7 @@ export default function Footer() {
             Tech Stack
           </span>
           <span className="text-[10px] text-muted font-mono">
-            Next.js 14 · Notion API · Framer Motion · Tailwind
+            Next.js · Notion API · Framer Motion · Tailwind
           </span>
         </div>
       </div>

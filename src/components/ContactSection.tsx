@@ -5,9 +5,9 @@ import emailjs from '@emailjs/browser';
 import { ContactFormData } from '@/types';
 
 const socials = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/borisdjagou', icon: '🔗' },
-  { label: 'GitHub', href: 'https://github.com/ShegouB', icon: '🐙' },
-  { label: 'Facebook', href: 'https://facebook.com/Borisdja2.0', icon: '👤' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/borisdjagou', },
+  { label: 'GitHub', href: 'https://github.com/ShegouB', },
+  { label: 'Facebook', href: 'https://facebook.com/Borisdja2.0', },
 ];
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
@@ -56,7 +56,7 @@ export default function ContactSection() {
         viewport={{ once: true }}
         className="mb-16"
       >
-        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">// 04. Contact</p>
+        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">Contact</p>
         <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
           Travaillons <span className="text-purple">ensemble</span>
         </h2>

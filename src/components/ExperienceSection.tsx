@@ -83,7 +83,7 @@ export default function ExperienceSection() {
     <section id="experience" className="py-24 px-6 max-w-6xl mx-auto">
       {/* En-tête */}
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">// 03. Expérience & Leadership</p>
+        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">Expérience & Leadership</p>
         <h2 className="text-4xl md:text-5xl font-extrabold mb-12">
           Mon <span className="text-purple">parcours</span>
         </h2>

@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 
 // Définition de tes stacks avec niveaux de progression
 const skills =[
-  { name: 'Machine Learning / Deep Learning', level: 92 },
-  { name: 'Python (Data Science & Backend)', level: 90 },
+  { name: 'Machine Learning / Deep Learning', level: 80 },
+  { name: 'Python (Data Science & Backend)', level: 78 },
   { name: 'Bio-informatique & Génomique', level: 85 },
   { name: 'Web Full-Stack (React, Node, Django)', level: 80 },
-  { name: 'IoT & Embarqué (Arduino, ESP32)', level: 75 },
+  { name: 'IoT & Embarqué (Arduino, ESP32)', level: 60 },
 ];
 
 export default function AboutSection() {
@@ -20,7 +20,7 @@ export default function AboutSection() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">// 01. À propos</p>
+        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">À propos</p>
         <h2 className="text-4xl md:text-5xl font-extrabold mb-12">
           De la <span className="text-purple">théorie</span> à la pratique
         </h2>

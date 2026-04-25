@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 const roles =[
-  'Biochimiste 🧬',
-  'Développeur IA 🤖',
-  'Tech Entrepreneur 🚀',
-  'Ingénieur IoT ⚡',
-  'Data Scientist 📊',
+  'Biochimiste',
+  'Développeur IA',
+  'Tech Entrepreneur',
+  'Ingénieur IoT',
+  'Data Scientist',
 ];
 
 const stats =[
   { value: '94.74%', label: 'Précision IA\n(Oncologie)' },
-  { value: '803e', label: 'Monde Kaggle\n(NeurIPS 2025)' },
+  { value: '1e', label: 'Igbega X\n(2026)' },
   { value: '30+', label: 'Plateformes web\ndéployées' },
 ];
 
@@ -58,7 +58,7 @@ export default function HeroSection() {
         >
           {/* Tag Localisation */}
           <p className="font-mono text-xs text-purple tracking-widest mb-6 uppercase opacity-90 border border-purple/30 inline-block px-4 py-1.5 rounded-full bg-purple/10">
-            📍 Cotonou, Bénin 🇧🇯
+            Cotonou, Bénin
           </p>
 
           {/* Nom */}
@@ -75,10 +75,10 @@ export default function HeroSection() {
 
           {/* Description */}
           <p className="text-muted text-base leading-relaxed max-w-lg mb-10">
-            Professionnel pluridisciplinaire combinant la rigueur de la{' '}
-            <strong className="text-white">biochimie</strong> avec la puissance de l&apos;
+            Professionnel pluridisciplinaire combinant la rigueur de la {' '}
+            <strong className="text-white">biochimie</strong>, avec la puissance de l&apos;
             <strong className="text-purple">Intelligence Artificielle</strong>, du{' '}
-            <strong className="text-white">développement Full-Stack</strong> et de l&apos;
+            <strong className="text-white">développement Full-Stack</strong>, et de l&apos;
             <strong className="text-purple">IoT embarqué</strong>. Certifié Empretec, je transforme la science en impact réel.
           </p>
 
@@ -166,23 +166,13 @@ export default function HeroSection() {
               🚀
             </div>
             <div>
-              <p className="text-sm font-bold text-white">Top 803 Mondial</p>
-              <p className="text-[10px] font-mono text-purple uppercase tracking-wider">Kaggle NeurIPS '25</p>
+              <p className="text-sm font-bold text-white"> Head </p>
+              <p className="text-[10px] font-mono text-purple uppercase tracking-wider">Igbega X</p>
             </div>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 hover:opacity-100 transition-opacity"
-      >
-        <span className="font-mono text-[10px] text-white uppercase tracking-widest">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-purple to-transparent" />
-      </motion.div>
+      
     </section>
   );
 }

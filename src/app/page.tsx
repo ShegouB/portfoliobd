@@ -7,7 +7,6 @@ import ExperienceSection from '@/components/ExperienceSection';
 import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import ParticlesBackground from '@/components/ParticlesBackground';
 
 export const revalidate = 60;
 
@@ -19,7 +18,7 @@ export default async function Home() {
 
   return (
     <main className="relative min-h-screen bg-navy selection:bg-purple/30 selection:text-white">
-      <ParticlesBackground />
+      
       <Navbar />
       
       <div className="relative z-10">

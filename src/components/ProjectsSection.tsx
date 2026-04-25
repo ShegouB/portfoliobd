@@ -101,7 +101,7 @@ export default function ProjectsSection({ projects }: { projects: Project[] }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">// 02. Projets & R&D</p>
+        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">Projets & Recherche &Développement</p>
         <h2 className="text-4xl md:text-5xl font-extrabold mb-10">
           Featured <span className="text-purple">Projects</span>
         </h2>

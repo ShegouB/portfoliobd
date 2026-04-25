@@ -8,7 +8,7 @@ export default function BlogSection({ posts }: { posts: BlogPost[] }) {
   return (
     <section id="blog" className="py-24 px-6 max-w-6xl mx-auto">
       <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">// 05. Journal de Bord</p>
+        <p className="font-mono text-xs text-purple tracking-widest uppercase mb-3">Journal de Bord</p>
         <h2 className="text-4xl md:text-5xl font-extrabold mb-10">
           Dernières <span className="text-purple">publications</span>
         </h2>
