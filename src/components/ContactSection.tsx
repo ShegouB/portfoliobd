@@ -5,9 +5,9 @@ import emailjs from '@emailjs/browser';
 import { ContactFormData } from '@/types';
 
 const socials = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/borisdjagou', },
-  { label: 'GitHub', href: 'https://github.com/ShegouB', },
-  { label: 'Facebook', href: 'https://facebook.com/Borisdja2.0', },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/borisdjagou', icon: '🔗' },
+  { label: 'GitHub', href: 'https://github.com/ShegouB', icon: '🐙' },
+  { label: 'Facebook', href: 'https://facebook.com/Borisdja2.0', icon: '👥' },
 ];
 
 type Status = 'idle' | 'sending' | 'success' | 'error';
