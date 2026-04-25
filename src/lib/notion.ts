@@ -77,16 +77,26 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
 const FALLBACK_PROJECTS: Project[] = [
   {
-    id: '1', title: 'IA Oncologie Mammaire', category: 'IA',
+    id: '1', 
+    title: 'IA Oncologie Mammaire', 
+    category: 'Intelligence Artificielle', // Fixed from 'IA'
     description: 'Modèle de Deep Learning classifiant les tumeurs avec 94.74% de précision.',
-    tags: ['TensorFlow', 'Python', 'CNN'], metric: '94.74% Précision',
-    githubUrl: 'https://github.com/ShegouB', featured: true, date: '2025-01-01',
+    tags: ['TensorFlow', 'Python', 'CNN'], 
+    metric: '94.74% Précision',
+    githubUrl: 'https://github.com/ShegouB', 
+    featured: true, 
+    date: '2025-01-01',
   },
   {
-    id: '2', title: 'Smart Road IoT', category: 'Iot',
+    id: '2', 
+    title: 'Smart Road IoT', 
+    category: 'IoT / Embarqué', // Fixed from 'Iot'
     description: 'Architecture embarquée pour la détection automatisée des excès de vitesse.',
-    tags: ['C++', 'Arduino', 'Cloud'], metric: 'Idéathon C3E',
-    githubUrl: 'https://github.com/ShegouB', featured: true, date: '2025-02-01',
+    tags: ['C++', 'Arduino', 'Cloud'], 
+    metric: 'Idéathon C3E',
+    githubUrl: 'https://github.com/ShegouB', 
+    featured: true, 
+    date: '2025-02-01',
   }
 ];
 
