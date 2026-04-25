@@ -34,11 +34,18 @@ export default function ParticlesBackground() {
             outModes: { default: 'bounce' },
           },
           number: { 
-            density: { enable: true, area: 1000 }, 
+            density: { 
+              enable: true, 
+              width: 1000 
+            }, 
             value: 60 
           },
-          opacity: { value: { min: 0.1, max: 0.3 } },
-          size: { value: { min: 0.5, max: 1.5 } },
+          opacity: { 
+            value: { min: 0.1, max: 0.3 } 
+          },
+          size: { 
+            value: { min: 0.5, max: 1.5 } 
+          },
         },
         detectRetina: true,
       }}
